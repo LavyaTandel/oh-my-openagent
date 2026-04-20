@@ -95,7 +95,7 @@ export class TmuxSessionManager {
   constructor(ctx: PluginInput, tmuxConfig: TmuxConfig, deps: TmuxUtilDeps = defaultTmuxDeps) {
     this.client = ctx.client
     this.tmuxConfig = tmuxConfig
-    this.projectDirectory = ctx.directory
+    this.projectDirectory = ctx.directory || process.cwd()
     this.deps = deps
     const configuredPort = process.env.OPENCODE_PORT
     const parsedPort = configuredPort ? Number(configuredPort) : 4096
